@@ -26,7 +26,7 @@
           (függőleges vonallal kezdőik, az is kell):
              | filter:phraseString:'name' | sorter:columnKey
          -->
-        <tr *ngFor="let user of users | filter: phraseString : columnKey">
+        <tr *ngFor="let user of users | filter:phraseString:'name' | sorter:columnKey">
           <td>{{ user.id }}</td>
           <td>{{ user.name }}</td>
           <td>{{ user.email }}</td>

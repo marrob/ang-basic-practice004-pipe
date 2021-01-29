@@ -20,7 +20,7 @@ export class SorterPipe implements PipeTransform {
      * Ellenőrzés: ha a value nem tömb, vagy nincs megadva a key,
      * térj vissza a value változóval.
      */
-    if(!Array.isArray(value) || key == "")
+    if (!Array.isArray(value) || !key)
     return value;
 
 
@@ -34,15 +34,15 @@ export class SorterPipe implements PipeTransform {
      * 3. Térj vissza a két string localeCompare metódus által visszaadott
      *  összehasonlításának az eredményével.
      */
-
+    key = key.toLowerCase();
     return value.sort( (a, b)=> {
         if(isNaN(a[key]) || isNaN(b[key])){
-            let a_str = a.toString().toLowerCase() ;
-            let b_str = b.toString().toLowerCase();
-            return a_str.localCompare(b_str);
+            const a_str:string = ('' + a[key]).toLowerCase();
+            const b_str:string = ('' + b[key]).toLowerCase();
+            return a_str.localeCompare(b_str);
         }
         else{
-            return a - b;
+            return a[key] - b[key];
         }
     })
 
