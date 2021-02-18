@@ -26,17 +26,17 @@
           (függőleges vonallal kezdőik, az is kell):
              | filter:phraseString:'name' | sorter:columnKey
          -->
-        <tr *ngFor="let user of users | filter:phraseString:'name' | sorter:columnKey">
-          <td>{{ user.id }}</td>
-          <td>{{ user.name }}</td>
-          <td>{{ user.email }}</td>
-          <td>{{ user.address }}</td>
-          <td>{{ user.active }}</td>
-          <td>
+        <tr *ngFor="let user of users | filter:phraseString :  'name' | sorter:columnKey">
+            <td>{{ user.id }}</td>
+            <td>{{ user.name }}</td>
+            <td>{{ user.email }}</td>
+            <td>{{ user.address }}</td>
+            <td>{{ user.active }}</td>
+            <td>
             <button (click)="onSelectUser(user)" class="btn btn-info">
-              <i class="fa fa-eye"></i>
+                <i class="fa fa-eye"></i>
             </button>
-          </td>
+            </td>
         </tr>
       </tbody>
     </table>
